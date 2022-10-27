@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $font-family;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.375em;
+    box-sizing: border-box;
+    background-color: getColor(background, main);
+}
+
+html {
+    font-size: 87.5%;
+    @include media-query(ipad) {
+        font-size: 93.75%;
+    }
+    @include media-query(desktop) {
+        font-size: 100%;
+    }
+}

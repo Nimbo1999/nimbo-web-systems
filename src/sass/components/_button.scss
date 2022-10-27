@@ -1,0 +1,110 @@
+.btn {
+    appearance: none;
+    border: none;
+    background-color: getColor(background, light);
+    padding: .625em 1.5em;
+    cursor: pointer;
+
+    &__primary {
+        &--solid {
+            border: 1px solid getColor(primary, main);
+            background-color: getColor(primary, main);
+            color: getColor(text, primary);
+        }
+
+        &--outline {
+            border: 2px solid getColor(primary, main);
+            color: getColor(primary, main);
+            background-color: transparent;
+        }
+
+        &--text {
+            color: getColor(primary, main);
+            background-color: transparent;
+        }
+    }
+
+    &__secondary {
+        &--solid {
+            border: 1px solid getColor(secondary, main);
+            background-color: getColor(secondary, main);
+            color: getColor(background, light);
+        }
+
+        &--outline {
+            border: 2px solid getColor(secondary, main);
+            color: getColor(secondary, main);
+            background-color: transparent;
+        }
+
+        &--text {
+            color: getColor(secondary, main);
+            background-color: transparent;
+        }
+    }
+
+    &__success {
+        &--solid {
+            border: 1px solid getColor(success, main);
+            background-color: getColor(success, main);
+            color: getColor(text, primary);
+        }
+
+        &--outline {
+            border: 2px solid getColor(success, main);
+            color: getColor(success, main);
+            background-color: transparent;
+        }
+
+        &--text {
+            color: getColor(success, main);
+            background-color: transparent;
+        }
+    }
+
+    &__info {
+        &--solid {
+            border: 1px solid getColor(info, main);
+            background-color: getColor(info, main);
+            color: getColor(text, primary);
+        }
+
+        &--outline {
+            border: 2px solid getColor(info, main);
+            color: getColor(info, main);
+            background-color: transparent;
+        }
+
+        &--text {
+            color: getColor(info, main);
+            background-color: transparent;
+        }
+    }
+
+    &__danger {
+        &--solid {
+            border: 1px solid getColor(danger, main);
+            background-color: getColor(danger, main);
+            color: getColor(text, primary);
+        }
+
+        &--outline {
+            border: 2px solid getColor(danger, main);
+            color: getColor(danger, main);
+            background-color: transparent;
+        }
+
+        &--text {
+            color: getColor(danger, main);
+            background-color: transparent;
+        }
+    }
+
+    &--rounded {
+        border-radius: 200rem;
+    }
+
+    &--shadow {
+        box-shadow: $button-shadow;
+    }
+}

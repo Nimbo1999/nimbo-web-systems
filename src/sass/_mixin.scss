@@ -1,0 +1,27 @@
+@function getColor($color, $tone) {
+    @if map-has-key($palette, $color) {
+        $color: map-get($palette, $color);
+        @if map-has-key($color, $tone) {
+            @return map-get($color, $tone);
+        }
+        @error 'Tone does not exists #{$tone} in color';
+    }
+    @error 'Color does not exists #{$color}, #{$tone} in palette';
+}
+
+////////////////////////////////////
+/// MEDIA QUERY OPTIONS
+/// 
+/// default
+/// mobile
+/// mobile-landscape
+/// ipad
+/// ipad-landscape
+/// desktop
+/// 
+
+@mixin media-query($breakPoint: default) {
+    @media screen and (min-width: map-get($mediaQuery, $breakPoint)) {
+        @content;
+    }
+}
