@@ -15,6 +15,7 @@ export class ProjectsAdapter {
             description: data.description,
             image: !!data.image ? data.image : Constants.BlankImagePlaceholder,
             name: data.name,
+            date: data.date,
             repository: {
                 url: data.repository.url,
                 provider: data.repository.provider,

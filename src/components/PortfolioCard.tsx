@@ -8,6 +8,7 @@ interface PortfolioCardProps {
     title: string;
     description: string;
     repository: Repository;
+    date: string;
 }
 
 const PortfolioCard: React.FC<PortfolioCardProps> = ({
@@ -15,6 +16,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
     description,
     imageSource,
     repository,
+    date,
 }) => {
     return (
         <div className="portfolio-card">
@@ -31,9 +33,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
 
             <main className="portfolio-card__content">
                 <div className="portfolio-card__meta-data">
-                    <small className="portfolio-card__date">
-                        {DateUtils.formatDate(new Date())}
-                    </small>
+                    <small className="portfolio-card__date">{DateUtils.formatISODate(date)}</small>
 
                     <a
                         className="portfolio-card__link"

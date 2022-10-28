@@ -6,4 +6,5 @@ export interface Project {
     description: string;
     image: string;
     repository: Repository;
+    date: string;
 }

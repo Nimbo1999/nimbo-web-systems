@@ -124,6 +124,7 @@ const IndexPage: React.FC = () => {
                             description={project.description}
                             imageSource={project.image}
                             repository={project.repository}
+                            date={project.date}
                         />
                     ))}
 

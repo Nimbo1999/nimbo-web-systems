@@ -14,6 +14,14 @@ export class DateUtils {
         second: '2-digit',
     });
 
+    static formatISODate(date: string): string {
+        try {
+            return DateUtils.formatDate(new Date(date));
+        } catch (err) {
+            return 'Unknown Date';
+        }
+    }
+
     static formatDate(date: Date): string {
         return DateUtils.DATE_FORMATTER.format(date);
     }
