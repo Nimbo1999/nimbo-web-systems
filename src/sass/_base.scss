@@ -19,11 +19,11 @@ body {
 }
 
 html {
-    font-size: 87.5%;
+    font-size: 107.5%;
     @include media-query(ipad) {
-        font-size: 93.75%;
+        font-size: 103.75%;
     }
     @include media-query(desktop) {
-        font-size: 100%;
+        font-size: 105%;
     }
 }

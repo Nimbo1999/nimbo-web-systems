@@ -8,7 +8,7 @@
 
     row-gap: 1.5rem;
 
-    height: 55vh;
+    height: 70vh;
     width: 100%;
     background-image: linear-gradient(rgba(getColor(secondary, main), .25) 0%, rgba(getColor(secondary, main), .25) 100%), url('/hero-image.jpg');
     background-size: cover;
@@ -27,6 +27,14 @@
         color: getColor(text, secondary);
         text-transform: uppercase;
     }
+
+    @include media-query(ipad-landscape) {
+        height: 75vh;
+    }
+
+    @include media-query(desktop) {
+        height: 80vh;
+    }
 }
 
 .wave {
@@ -35,15 +43,23 @@
     width: 100%;
 
     @include media-query(ipad-landscape) {
-        transform: scaleY(.8) translateY(21%);
+        transform: scaleY(.6) translateY(41%);
     }
 
-    @include media-query(desktop) {
-        transform: scaleY(.5) translateY(51%);
+    @include media-query(large-desktop) {
+        transform: scaleY(.3) translateY(120%);
     }
 
     &--translate-bottom {
         transform: translateY(99%);
+
+        @include media-query(ipad-landscape) {
+            transform: scaleY(.6) translateY(131%);
+        }
+
+        @include media-query(large-desktop) {
+            transform: scaleY(.4) translateY(172%);
+        }
     }
 }
 
@@ -55,14 +71,23 @@
     align-items: center;
     background-image: $background-linear-gradient;
     padding: 2rem 2rem;
+
+    @include media-query(ipad-landscape) {
+        height: 50vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include media-query(desktop) {
+        height: 60vh;
+    }
 }
 
 .section-services {
     position: relative;
     z-index: 5;
     display: block;
-    line-height: 1;
-    padding: 6rem 2rem;
+    padding: 6rem 2rem 8rem;
     background-image: url("/macbook.jpg");
     clip-path: polygon(
         0 0,
@@ -80,6 +105,21 @@
         display: flex;
         flex-direction: column;
         row-gap: 2rem;
+
+        @include media-query(ipad-landscape) {
+            max-width: 56.25rem;
+            margin: 0 auto -4rem;
+        }
+
+        @include media-query(desktop) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 2rem;
+        }
+    }
+
+    @include media-query(desktop) {
+        padding: 8rem 2rem 10rem;
     }
 }
 
@@ -95,5 +135,13 @@
         display: flex;
         flex-direction: column;
         row-gap: 2rem;
+
+        @include media-query(ipad-landscape) {
+            max-width: 56.25rem;
+            margin: 0 auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 2rem;
+        }
     }
 }

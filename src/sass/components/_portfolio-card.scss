@@ -1,6 +1,8 @@
 .portfolio-card {
     display: flex;
     flex-direction: column;
+    max-width: 31.25rem;
+    margin: 0 auto;
     color: getColor(text, primary);
     box-shadow: $button-shadow;
     border-radius: 6px;
@@ -63,5 +65,15 @@
     &__footer {
         display: flex;
         justify-content: flex-end;
+    }
+
+    @include media-query(ipad-landscape) {
+        max-width: unset;
+        margin: unset;
+        flex: 0 0 calc(50% - 2rem / 2);
+    }
+
+    @include media-query(desktop) {
+        flex: 0 0 calc(33.33333% - 2rem / 1.5);
     }
 }

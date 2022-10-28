@@ -41,4 +41,12 @@
         display: flex;
         align-items: center;
     }
+
+    @include media-query(ipad-landscape) {
+        max-width: 37.5rem;
+    }
+
+    @include media-query(desktop) {
+        max-width: 56.25rem;
+    }
 }

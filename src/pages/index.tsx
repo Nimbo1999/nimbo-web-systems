@@ -95,19 +95,19 @@ const IndexPage: React.FC = () => {
                 <div className="section-services__content">
                     <ServiceCard
                         title="Solid prototypes"
-                        description="Build"
+                        description="Start your system with a beautiful prototype. We can create your Design System, Components, Layouts and your final prototype result with the help of a powerful tool called Figma"
                         imageSource="icons/spa-app.svg"
                     />
 
                     <ServiceCard
                         title="Responsive Design"
-                        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita voluptatibus harum repellendus aliquam eaque laudantium deserunt animi nisi itaque cumque, exercitationem et enim dolore velit praesentium dolorum officiis quidem. Nesciunt."
+                        description="Reach all users and devices with a responsive design approach. Users that use mainly phones, desktops or even more, will enjoy your system"
                         imageSource="icons/responsive-design.svg"
                     />
 
                     <ServiceCard
                         title="Mobile App"
-                        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita voluptatibus harum repellendus aliquam eaque laudantium deserunt animi nisi itaque cumque, exercitationem et enim dolore velit praesentium dolorum officiis quidem. Nesciunt."
+                        description="Create a version of your Web app or Desktop app to Mobile app and provide it through Play Store and App Store"
                         imageSource="icons/mobile-app.svg"
                     />
                 </div>
