@@ -1,4 +1,8 @@
+import { CollectionReference, DocumentData, QuerySnapshot } from 'firebase/firestore';
+
+export type Collection = 'projects';
+
 export interface CollectionDocumentDB {
-    getCollection<T>(): Promise<T>;
-    setCollection<T>(): Promise<T>;
+    getCollection(collection: Collection): CollectionReference<DocumentData>;
+    getDocuments(collection: Collection): Promise<QuerySnapshot<DocumentData>>;
 }

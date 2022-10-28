@@ -1,19 +1,17 @@
-import { useEffect } from 'react';
-import { GetServerSideProps } from 'next';
+import { useEffect, useState } from 'react';
 
 import { Button, ServiceCard, PortfolioCard } from '@/components';
 import { Project } from '@/interfaces/Project';
 import { firestoreService } from '@/firebase';
+import { ProjectsServiceImpl } from '@/services/ProjectsService/ProjectServiceImpl';
 
-interface IndexPageProps {
-    projects: Project[];
-}
+const IndexPage: React.FC = () => {
+    const [projects, setProjects] = useState<Project[]>([]);
 
-const IndexPage: React.FC<IndexPageProps> = ({ projects }) => {
     useEffect(() => {
         const runEffect = async () => {
-            const data = await firestoreService.getCollection<string>();
-            console.log({ data });
+            const projectsService = new ProjectsServiceImpl(firestoreService);
+            setProjects(await projectsService.getAllProjects());
         };
         runEffect();
     }, []);
@@ -136,48 +134,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ projects }) => {
             </section>
         </div>
     );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-    const props: { projects: Project[] } = {
-        projects: [
-            {
-                id: 'project-1',
-                name: 'Project Name',
-                description:
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nulla officiis eaque natus quod eum delectus inventore vitae exercitationem ducimus, eveniet cupiditate, illum laborum nesciunt eligendi libero deleniti tenetur quia.',
-                image: '/macbook.jpg',
-                repository: {
-                    provider: 'github',
-                    url: 'https://github.com/Nimbo1999',
-                },
-            },
-            {
-                id: 'project-2',
-                name: 'Project Name',
-                description:
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nulla officiis eaque natus quod eum delectus inventore vitae exercitationem ducimus, eveniet cupiditate, illum laborum nesciunt eligendi libero deleniti tenetur quia.',
-                image: '/macbook.jpg',
-                repository: {
-                    provider: 'github',
-                    url: 'https://github.com/Nimbo1999',
-                },
-            },
-            {
-                id: 'project-3',
-                name: 'Project Name',
-                description:
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nulla officiis eaque natus quod eum delectus inventore vitae exercitationem ducimus, eveniet cupiditate, illum laborum nesciunt eligendi libero deleniti tenetur quia.',
-                image: '/macbook.jpg',
-                repository: {
-                    provider: 'github',
-                    url: 'https://github.com/Nimbo1999',
-                },
-            },
-        ],
-    };
-
-    return { props };
 };
 
 export default IndexPage;

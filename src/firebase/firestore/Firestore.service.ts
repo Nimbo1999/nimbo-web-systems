@@ -1,21 +1,26 @@
 import { FirebaseApp } from 'firebase/app';
-import { Firestore, getFirestore } from 'firebase/firestore';
-import { CollectionDocumentDB } from './CollectionDocumentDB';
+import {
+    Firestore,
+    getFirestore,
+    collection,
+    CollectionReference,
+    DocumentData,
+    getDocs,
+} from 'firebase/firestore';
+import { Collection, CollectionDocumentDB } from './CollectionDocumentDB';
 
 export class FirestoreService implements CollectionDocumentDB {
     private firestore: Firestore;
 
-    constructor(private readonly app: FirebaseApp) {
+    constructor(app: FirebaseApp) {
         this.firestore = getFirestore(app);
     }
 
-    getCollection<T>(): Promise<T> {
-        return new Promise((resolve) => {
-            resolve('Hey!' as T);
-        });
+    getCollection(collectionName: Collection): CollectionReference<DocumentData> {
+        return collection(this.firestore, collectionName);
     }
 
-    setCollection<T>(): Promise<T> {
-        throw new Error('Method not implemented Yet!');
+    async getDocuments(collectionName: Collection) {
+        return await getDocs(this.getCollection(collectionName));
     }
 }
