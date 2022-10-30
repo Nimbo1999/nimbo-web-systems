@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { Button, ServiceCard, PortfolioCard } from '@/components';
 import { Project } from '@/interfaces/Project';
@@ -6,7 +7,17 @@ import { firestoreService } from '@/firebase';
 import { ProjectsServiceImpl } from '@/services/ProjectsService/ProjectServiceImpl';
 
 const IndexPage: React.FC = () => {
+    const router = useRouter();
     const [projects, setProjects] = useState<Project[]>([]);
+
+    const onNavigateToSection = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        e.preventDefault();
+        const target = e.target as HTMLAnchorElement;
+        const elementTarget = document.getElementById(target.hash.replace('#', ''));
+        if (!!elementTarget) {
+            router.push({ hash: target.hash });
+        }
+    };
 
     useEffect(() => {
         const runEffect = async () => {
@@ -18,7 +29,7 @@ const IndexPage: React.FC = () => {
 
     return (
         <div className="container">
-            <div className="hero">
+            <div className="hero" id="home">
                 <main className="hero__text-content">
                     <h4 className="hero__title h4">Let&apos;s build your UI/UX solution</h4>
                     <span className="hero__sub-title">Nimbo web systems</span>
@@ -29,7 +40,7 @@ const IndexPage: React.FC = () => {
                 <img src="/hero-down-wave.svg" alt="Hero Wave" className="wave" />
             </div>
 
-            <section className="section-about">
+            <section className="section-about" id="section-about">
                 <h4 className="heading-5 heading-5--gradient mb-4">About the team</h4>
 
                 <div className="team-member mb-4">
@@ -39,6 +50,7 @@ const IndexPage: React.FC = () => {
                         <div className="team-member__header-content">
                             <h5 className="team-member__name subtitle-1">Matheus Lopes</h5>
                             <h5 className="team-member__role body-2">Frontend Developer</h5>
+                            <h5 className="team-member__role body-2">matlopes1999@gmail.com</h5>
 
                             <div className="team-member__icon-wrapper">
                                 <a
@@ -49,14 +61,6 @@ const IndexPage: React.FC = () => {
                                         src="/icons/github.svg"
                                         className="team-member__icon"
                                         alt="github"
-                                    />
-                                </a>
-
-                                <a className="team-member__link" href="https://gmail.com">
-                                    <img
-                                        src="/icons/mail.svg"
-                                        className="team-member__icon"
-                                        alt="email"
                                     />
                                 </a>
 
@@ -89,7 +93,7 @@ const IndexPage: React.FC = () => {
                 />
             </section>
 
-            <section className="section-services">
+            <section className="section-services" id="section-services">
                 <h4 className="heading-5 heading-5--gradient mb-4">Services</h4>
 
                 <div className="section-services__content">
@@ -113,7 +117,7 @@ const IndexPage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="section-portfolio">
+            <section className="section-portfolio" id="section-portfolio">
                 <h4 className="heading-5 mb-4">Portfolio</h4>
 
                 <div className="section-portfolio__content">
@@ -133,6 +137,49 @@ const IndexPage: React.FC = () => {
                     </Button> */}
                 </div>
             </section>
+
+            <footer className="section-footer">
+                <ul className="section-footer__menu">
+                    <li className="section-footer__menu-item">
+                        <a
+                            className="section-footer__link"
+                            href="#home"
+                            onClick={onNavigateToSection}
+                        >
+                            Home
+                        </a>
+                    </li>
+                    <li className="section-footer__menu-item">
+                        <a
+                            className="section-footer__link"
+                            href="#section-about"
+                            onClick={onNavigateToSection}
+                        >
+                            About the team
+                        </a>
+                    </li>
+                    <li className="section-footer__menu-item">
+                        <a
+                            className="section-footer__link"
+                            href="#section-services"
+                            onClick={onNavigateToSection}
+                        >
+                            Services
+                        </a>
+                    </li>
+                    <li className="section-footer__menu-item">
+                        <a
+                            className="section-footer__link"
+                            href="#section-portfolio"
+                            onClick={onNavigateToSection}
+                        >
+                            Portfolio
+                        </a>
+                    </li>
+                </ul>
+
+                <span className="section-footer__copyright">Nimbo Web Systems &copy; 2022</span>
+            </footer>
         </div>
     );
 };

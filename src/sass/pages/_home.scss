@@ -146,3 +146,35 @@
         }
     }
 }
+
+.section-footer {
+    padding: 4rem 2rem;
+    color: getColor(text, primary);
+    text-align: center;
+
+    &__menu {
+        list-style: none;
+        margin-bottom: 4rem;
+        text-align: left;
+    }
+
+    &__menu-item {
+        padding: .25rem 0;
+    }
+
+    &__copyright {
+        font-size: .875rem;
+    }
+
+    &__link {
+        cursor: pointer;
+        color: getColor(info, light);
+        text-decoration: none;
+    }
+
+    @include media-query(ipad-landscape) {
+        max-width: 56.25rem;
+        margin: 0 auto -4rem;
+        padding: 4rem 0;
+    }
+}
